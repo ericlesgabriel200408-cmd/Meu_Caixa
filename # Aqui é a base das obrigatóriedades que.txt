@@ -1,0 +1,19 @@
+# Aqui é a base das obrigatóriedades que deve conter
+#Requisitos obrigatórios
+• Cadastrar transação (descrição, valor, tipo:
+receita/despesa, categoria)
+• Listar todas as transações com status
+• Fila de despesas pendentes — FIFO: mais
+antiga paga primeiro
+• Pilha de pagamentos realizados — LIFO:
+último pagamento no topo
+• Atualizar status: Pendente > Pago
+• Exibir saldo atual (receitas - despesas
+pagas)
+#Funcionalidades bônus
+• Filtrar transações por categoria
+• Total gasto por categoria
+Dica
+Use try/except ao ler o valor: valor =
+float(input('Valor: ')) dentro de try. Sem isso, texto
+no lugar do número quebrara o programa
