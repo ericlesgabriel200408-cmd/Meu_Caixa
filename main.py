@@ -7,17 +7,13 @@ from tarefas import *
 #Esse é o Painel que será utlizado.
 #Antes de tudo fiz o Painel primeiro, para ter uma noção do que fazer nas tarefas e adicionar as funções no dados.py.
 while True:
-        print("\n === Gerenciador de Finanças Pessoais ==========")
-        print("1 - Adicionar Salário")
-        print("2 - Adicionar transação")
-        print("3 - Listar transações")
-        print("4 - Remover transação")
-        print("5 - Análise financeira")
-        print("6 - Despesas a pagar")
-        print("7 - Pagar despesas")
-        print("8 - Despesas pagas")
-        print("9 - Saldo atual")
-        print("0 - Sair")
+        print("\n ============== Gerenciador de Finanças Pessoais ===================")
+        print("1 - Adicionar Salário                    2 - Adicionar transação")
+        print("3 - Listar transações                    4 - Remover transação")
+        print("5 - Análise financeira                   6 - Despesas a pagar")
+        print("7 - Pagar despesas                       8 - Despesas pagas")
+        print("9 - Saldo atual                          0 - Sair")
+        print("\n ===================================================================")
         opcao = input("\nEscolha: ")
         
 
