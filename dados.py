@@ -24,8 +24,6 @@ despesas_pagas = []       #LIFO - Lista de despesas pagas mostrando a mais recen
 
 adicionar_salario = []
 
-salario = ["receita"]     #Após juntar essas variaveis conseguir rodar a opção de saldo atual, pois estava separada e tava dando erro no saldo.
-
 #Detalhe importante, pesqusei no CHAT GPT ele informou e explicou o uso do json e essa variavel para facilitar alterações futuras, ainda tenho muitas duvidas de como ela funciona.
 arquivo = "dados.json"  # Variável para armazenar o nome do arquivo onde os dados serão salvos e carregados. Facilita a manutenção do código, caso seja necessário mudar o nome do arquivo no futuro.
 

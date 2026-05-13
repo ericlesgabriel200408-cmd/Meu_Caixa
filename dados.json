@@ -1,0 +1,21 @@
+{
+    "salario": 0,
+    "transacoes": [
+        {
+            "tipo": "despesa",
+            "valor": 200.0,
+            "categoria": "energia",
+            "descricao": "conta de luz",
+            "data": "13/05/2026",
+            "status": "pendente"
+        },
+        {
+            "tipo": "despesa",
+            "valor": 100.0,
+            "categoria": "\u00e1gua",
+            "descricao": "conta de \u00e1gua",
+            "data": "13/05/2026",
+            "status": "pago"
+        }
+    ]
+}

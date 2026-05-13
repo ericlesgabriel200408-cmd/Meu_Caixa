@@ -34,10 +34,9 @@ def carregar_dados():
 
 #Foi colocado uma função de Salário a parte, assim o usuário não precisa ficar revendo, pois ficara salvo, ele precisará apenas informar o que será receita adicional e despesas.
 def adicionar_salario():
-    salario = float(input("Digite o valor do seu salário líquido: R$ "))
-    dados["salario"] = salario
     dados = carregar_dados()
-    
+    salario = float(input("Digite o valor do seu salário líquido: R$ "))
+    salario = "saldo"
     salvar_dados(dados)
 
     print("Salário adicionado com sucesso!")
@@ -91,16 +90,17 @@ def listar_transacoes():
 #Tive um pouco de dificuldade para fazer funcioanar, pois receita e salario tinha feito como variaveis separadas, após juntar funcionou.
 def saldo_atual():
     dados = carregar_dados()
-    
+    saldo + "salario" == transacao["valor"]
     saldo = dados["salario"]
     
     for transacao in dados["transacoes"]:
         
         if transacao["tipo"] == "receita":
             saldo += transacao["valor"]
-            
+
         elif transacao["tipo"] == "despesa":
-            saldo -= transacao["valor"]
+            saldo + "salario" == transacao["valor"]
+            transacao["valor"] -= "despesa"
 
     print(f"Saldo atual: R$ {saldo:.2f}")
     
