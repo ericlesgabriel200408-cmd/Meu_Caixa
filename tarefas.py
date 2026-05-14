@@ -1,13 +1,23 @@
-#Esse import json é para salvar os dados, esse import os é para limpar a tela, pesquisei antes de adicionar, ele serve para limpar tela de wiondows.
+## Aqui estão as Variaveis globais uliizadas no Gerenciador Financeiro
+limpar = []
+carregar_dados = []
+salvar_dados = [] 
+adicionar_transacao = []
+listar_transacoes = []
+remover_transacao = []
+saldo_atual = []
+analise_financeira = []
+arquivo = "dados.json"
+
+#Esse import "json" é para salvar os dados
+# esse import "os" é para limpar a tela, pesquisei antes de adicionar, ele serve para limpar tela de wiondows.
 import json
 import os
+import utils
 
 #Uma observação para deixar claro, não tenho conhecimento de importação de j.son e nem como usar um limpa tela.
 #então abri o youtube pesquisei e segui alguns passos para fazer, conseguir implementar graças a um tutorial.
 
-def limpar():
-    os.system("cls")
-    
 import json
 
 try:
@@ -61,6 +71,7 @@ def remover_transacao():
         print(f"Transação '{transacao_removida['descricao']}' removida com sucesso.")
     else:
         print("Opção inválida.")
+        return
         
 #Aqui usei return para garantir caso não tenha adicionado nada, estava com tendo problema pra ele listar sem adicionar nada.
 def listar_transacoes():
@@ -77,10 +88,10 @@ def listar_transacoes():
             f"Categoria: {transacao['categoria']}"
         )
 
-#Tive um pouco de dificuldade para fazer funcioanar, pois receita e salario tinha feito como variaveis separadas, após juntar funcionou.
+#Tive um pouco de dificuldade para fazer funcioanar, mas tentativas de erro conseguir arrumar.
 def saldo_atual():
     dados = carregar_dados()
-    #Aqui só tinah faltado colocar o valor para saldo uma coisa simples de resolver , tava tão afoito que não prestei atenção.
+    #Aqui só tinha faltado colocar o valor para saldo uma coisa simples de resolver , tava tão afoito que não prestei atenção.
     saldo = 0
     
     for transacao in dados["transacoes"]:
@@ -92,7 +103,7 @@ def saldo_atual():
             saldo -= transacao["valor"]
     print(f"Saldo atual: R$ {saldo:.2f}")
     
- #Para dar um claresa dos gastos, gasnhos , saldo em uma só lista , assim facilita a leitura.
+ #Para dar um claresa dos gastos, ganhos , saldo em uma só lista , assim facilita a leitura.
 def analise_financeira():
     dados = carregar_dados()
     try:
@@ -103,7 +114,7 @@ def analise_financeira():
                 total_receitas += transacao["valor"]
             elif transacao["tipo"] == "despesa":
                 total_despesas += transacao["valor"]
-        saldo = total_receitas - total_despesas             # Cálculo do saldo para mostrar na análise financeira. Pro usuário ter uma visão geral de suas finanças e não apenas do saldo atual.
+        saldo = total_receitas - total_despesas
         print("====== Relatório Finaceiro ======")
         print(f"Total de receitas: R$ {total_receitas:.2f}")
         print(f"Total de despesas: R$ {total_despesas:.2f}")    
@@ -111,8 +122,8 @@ def analise_financeira():
     except FileNotFoundError:
         print("Nenhum dado foi inserido ainda!!")
 
- #Coloquei essa função pois não tinha sentido ser considerado despesas e não incluir ela para pagar depois.
-def despesas_a_pagar():
+# Fiz essa função para gerar um lista de pagamento que o usuário adicionar como "despesa"
+def fila_pagamentos():
     dados = carregar_dados()
 
     for transacao in dados["transacoes"]:
@@ -123,38 +134,38 @@ def despesas_a_pagar():
             )
             salvar_dados(dados)
 
-#Assim caso deseje pagar e reitar menos 1 dos gastos deixa mais simples o uso.
+#Assim caso deseje realizar o pagamento, essa função gera a lista de despesas para efetuar o pagamento
 def pagar_despesas():
     dados = carregar_dados()
-    despesas_a_pagar = []
+    fila_pagamentos = []
     
     for transacao in dados["transacoes"]:
         if transacao["tipo"] == "despesa":
-            despesas_a_pagar.append(transacao)      #buscar apenas as despesas.
+            fila_pagamentos.append(transacao)      #buscar apenas as despesas.
 
     # Aqui  é pra olhar se existe despesas adicionada.
-    if len(despesas_a_pagar) == 0:
+    if len(fila_pagamentos) == 0:
         print("Não há despesas a pagar.")
         return
 
     print("=== Despesas a pagar ===")
 
-    for i, despesa in enumerate(despesas_a_pagar):
+    for i, despesa in enumerate(fila_pagamentos):
         print(
             f"{i} - {despesa['categoria']} | "
             f"R$ {despesa['valor']:.2f}"
         )
     escolha = int(input("Escolha o número da despesa: "))
-    if 0 <= escolha < len(despesas_a_pagar):
-        despesa_paga = despesas_a_pagar[escolha]
+    if 0 <= escolha < len(fila_pagamentos):
+        despesa_paga = fila_pagamentos[escolha]
         despesa_paga["status"] = "pago"
         salvar_dados(dados)
         print("Despesa paga com sucesso!")
     else:
         print("Opção inválida.")
 
-#Com isso aqui liata o que foi pago, e evita o usuário de repetir a conta, ou até mesmo dele esquecer que pagou.
-def despesas_pagas():
+#Com isso aqui faz uma pilha do que foi pago, e evita o usuário de repetir a conta, ou até mesmo dele esquecer que pagou.
+def pilha_pagamento_realizados():
     dados = carregar_dados()
     despesas_pagas = []
     for transacao in dados["transacoes"]:

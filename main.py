@@ -11,7 +11,7 @@ while True:
         print("1 - Adicionar transação                  2 - Listar transações")
         print("3 - Remover transação                    4 - Análise financeira")
         print("5 - Despesas a pagar                     6 - Pagar despesas  ")
-        print("7 - Despesas pagas                       8 - Saldo atual")
+        print("7 - Despesas Pagas                       8 - Saldo atual")
         print("9 - Sair")
         print("\n ===================================================================")
         opcao = input("\nEscolha: ")
@@ -30,13 +30,13 @@ while True:
             analise_financeira()
             
         elif opcao == "5":
-            despesas_a_pagar()
+            fila_pagamentos()
             
         elif opcao == "6":
             pagar_despesas()
             
         elif opcao == "7":
-            despesas_pagas()
+            pilha_pagamento_realizados()
             
         elif opcao == "8":
             saldo_atual()
