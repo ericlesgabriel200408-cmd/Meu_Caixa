@@ -1,38 +1,54 @@
-### Olá , somos o grupo 28, composto por Ericles e Nathan. Abaixo está uma descrição de nosso projeto, suas funcionalidades e motivos da escolha.
+#  Meu Caixa, um Gerenciador de Finanças Pessoais em Python
+> **Projeto Final de Programação de Computadores** | Entrega: 21/05/2026
+> **Profa. Andrea Ono Sakai** | Turma: Matutino/(42_32160_Presencial_90)
 
-1.
-• Nome do projeto: Meu Caixa
-• Tema escolhido: Controle Financeiro Pessoal
-• Grupo: 28
-• Integrantes: Ericles Gabriel Clemente Queiroz / Nathan Gabriel Nunes dos Santos
-• Período/Turma: Matutino / 42_32160_Presencial_90
+---
 
-2.
-• FIFO é uma fila onde o primeiro que entra é o primeiro que sai, no programa foi usada no Fila_pagamentos e despesas_pagas, para mostrar a primeria transação.
-• LIFO é onde o ultimo que entrar é o primerio a sair, no programa ele foi utilizado no pilha_pagamentos_realizados.
-• Não olhei muito pro lado do dicionário e ele foi tulizados apenas na ultima def do tarefas.py ele foi utilizado como .get na pilha_pagamentos_realizados.
-• Lista e Tupla, Lista ela nos permite alterar informações, e a tupla ela é imutável.
-• A lista foi utilizada nas variações globais para listar tudo e ficar no banco de dados para acessa-los sempre que possivel.
-• A tupla foi ulizada com frequência para salvamento de dados e carregamentos de dados, assim não teria qualquer tipo de alteração no conteúdo já informado, garantindo melhor funcionamento das informações.
-• Modularização ela é a divisão de partes de um programa, no caso nosso projeto foi dividido em 6 partes, sendo elas: Dados.py , Main.py , Tarefas.py , Utils.py , Readme.md e Changelog.md.
+###  Grupo 28 - Integrantes
+* **Ericles Gabriel Clemente Queiroz**
+* **Nathan Gabriel Nunes dos Santos**
 
-3. Como executar o projeto
-• Versão do Python 3.12.3 
-• Comando para executar no Terminal: python main.py
-• Não temos nenhuma biblioteca externa, apenas padrões.
+Abaixo está a descrição detalhada do nosso projeto.
 
-4.
-Requisitos obrigatórios
-• Cadastrar transação (descrição, valor, tipo: receita/despesa, categoria) ficou no adicionar transação
-• Listar todas as transações com status: apenas as despesas.
-• Fila de despesas pendentes — FIFO: mais antiga paga primeiro ficou no Despesas a pagar e Pagar despesas.
-• Pilha de pagamentos realizados — LIFO: ficou no Despegas Pagas - Pilha_pagamento.
-• Atualizar status: foi implementado diretamente no pagar despesas que logo após consta paga.
-• Exibir saldo atual (receitas - despesas pagas) - Ele informa o saldo líquido que sobra para o usuário.
-• Não foi utilizado bônus, mas usamos as dicas do try/except.
+---
 
-5. Dificuldades e aprendizados
+## 1. Sobre o Projeto e Escolha do Tema
+O projeto consiste em um sistema de **Controle Financeiro Pessoal**. A escolha partiu de uma necessidade minha e do **Ericles** em organizar nossas próprias contas e despesas no dia a dia. Ele foi o responsável pela maior parte do back-end. Eu, **Nathan** acompanhei o processo e fiquei responsável de cuidar da parte do GitHub e README.
 
-• Durante Desenvolvimento/teste, estava tendo problemas com calculo e saldo, mesmo excluindo e adicionando coisas para concertar, descobrimos e aprendenmos uma coisa nova sobre o Json, mesmo concertando entava dando erro no calculo onde descobrimos que os dados ainda estavam salvos no json, então passamos a excluir e reiterar com novas informações conforme necessidade.
-• Funções Desnecessárias, colocamos funções sem utlidade, onde ocupava espaço e atrapalhava o funcionamento do código. Então apredenemos a usar o que é necesserário que funcione antes de montar beleza, uma base firme para depois expandir.
-• Importações é bem dificil de enteder, principalemnte para salvar dados, utilizei um tutorial para implementar e ainda tenho dúvidas que vou tentando aprender sobre.
+---
+
+## 2. Conceitos de Estrutura de Dados Utilizados
+
+* **Fila - FIFO (First In, First Out):** Aplicada no gerenciamento de despesas a pagar. No sistema, as funções `fila_pagamentos()` e `pagar_despesas()` simulam essa estrutura. Os novos gastos entram no final da fila e, idealmente, a conta mais antiga deve ser visualizada primeiro.
+* **Pilha - LIFO (Last In, First Out):** Aplicada no histórico de contas já pagas. A função `pilha_pagamento_realizados()` agrupa as contas com o status `"pago"`. A lógica de pilha garante que os últimos pagamentos realizados fiquem posicionados no topo para facilitar a conferência das movimentações mais recentes.
+* **Dicionários:** É a estrutura central de dados do programa. Cada movimentação cadastrada é guardada como um dicionário contendo as chaves: `tipo`, `valor`, `categoria`, `descricao`, `data` e `status`.
+* **Listas:** Utilizadas como coleções dinâmicas estruturadas (como `dados["transacoes"]`), que permitem adicionar, interagir com a listar(iterar) e remover elementos livremente antes de salvá-los no armazenamento.
+* **Modularização:** O sistema foi dividido em **4 módulos funcionais de código**:
+  * `main.py`: Contém o loop do painel interativo e os desvios condicionais (`if/elif`).
+  * `dados.py`: Inicializa e define as estruturas de dados globais de persistência.
+  * `tarefas.py`: Onde reside toda as funções globais, lógica de negócios, cálculos e filtros do sistema.
+  * `utils.py`: Responsável por funções utilitárias do terminal, como o comando de limpar a tela.
+
+---
+
+## 3. Como Executar o Projeto
+
+### Pré-requisitos
+* **Python 3.12.3** (ou superior).
+* O projeto foi construído utilizando apenas módulos nativos padrão do Python (`json` e `os`), e não foi usado biblioteca.
+
+### Inicialização via Terminal
+python main.py
+
+## 4. Funcionalides implementadas 
+ Foram implementadas os requisitos do Tema "Controle Financeiro Pessoal":
+    - Cadastrar transação (descrição, valor, tipo: receita/despesa, categoria) ficou no adicionar transação
+    - Listar todas as transações com status: apenas as despesas.
+    - Fila de despesas pendentes — FIFO: mais antiga paga primeiro ficou no Despesas a pagar e Pagar despesas.
+    - Pilha de pagamentos realizados — LIFO: ficou no Despegas Pagas - Pilha_pagamento.
+    - Atualizar status: foi implementado diretamente no pagar despesas que logo após consta paga.
+    - Exibir saldo atual (receitas - despesas pagas) - Ele informa o saldo líquido que sobra para o usuário.
+    - Não foi utilizado bônus, mas usamos as dicas do try/except.
+
+## 5. Dificuldades e aprendizados 
+- Durante  a fase de desenvolvimento e testes, estavamos tendo problemas com os cálculos e saldos, mesmo excluindo e adicionando novas linhas de código para consertar os erros de cálculo, aprendemos .json sobre e suas funcionalidades servem para salvamento de dados, onde, o salvamentos dos valores de .json remanscente causavam conflito com os novos dados.  
