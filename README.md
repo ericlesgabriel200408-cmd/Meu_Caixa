@@ -1,7 +1,7 @@
 ### Olá , somos o grupo 28, composto por Ericles e Nathan. Abaixo está uma descrição de nosso projeto, suas funcionalidades e motivos da escolha.
 
 1.
-• Nome do projeto: 
+• Nome do projeto: Meu Caixa
 • Tema escolhido: Controle Financeiro Pessoal
 • Grupo: 28
 • Integrantes: Ericles Gabriel Clemente Queiroz / Nathan Gabriel Nunes dos Santos
