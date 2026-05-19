@@ -58,4 +58,4 @@ python main.py
 ---
 
 ## 5. Dificuldades e aprendizados 
-- Durante  a fase de desenvolvimento e testes, estavamos tendo problemas com os cálculos e saldos, mesmo excluindo e adicionando novas linhas de código para consertar os erros de cálculo, aprendemos sobre .json e como suas funcionalidades servem para salvamento de dados, onde, o salvamentos dos valores de .json remanscente causavam conflito com os novos dados.  
+- Durante  a fase de desenvolvimento e testes, estavamos tendo problemas com os cálculos e saldos, mesmo excluindo e adicionando novas linhas de código para consertar os erros de cálculo. Aprendemos sobre .json e como suas funcionalidades servem para salvamento de dados, onde, o salvamentos dos valores de .json remanscente causavam conflito com os novos dados.  
