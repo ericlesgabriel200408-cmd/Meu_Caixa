@@ -26,6 +26,7 @@ O projeto consiste em um sistema de **Controle Financeiro Pessoal**. A escolha p
 * **Pilha - LIFO (Last In, First Out):** Aplicada no histórico de contas já pagas. A função `pilha_pagamento_realizados()` agrupa as contas com o status `"pago"`. A lógica de pilha garante que os últimos pagamentos realizados fiquem posicionados no topo para facilitar a conferência das movimentações mais recentes.
 * **Dicionários:** É a estrutura central de dados do programa. Cada movimentação cadastrada é guardada como um dicionário contendo as chaves: `tipo`, `valor`, `categoria`, `descricao`, `data` e `status`.
 * **Listas:** Utilizadas como coleções dinâmicas estruturadas (como `dados["transacoes"]`), que permitem adicionar, interagir com a listar(iterar) e remover elementos livremente antes de salvá-los no armazenamento.
+* **Tuplas:** Utilizadas para `salvar_dados = []` e `carregar_dados = []` , garantindo a base dos dados nas tuplas.
 * **Modularização:** O sistema foi dividido em **4 módulos funcionais de código**:
   * `main.py`: Contém o loop do painel interativo e os desvios condicionais (`if/elif`).
   * `dados.py`: Inicializa e define as estruturas de dados globais de persistência.
