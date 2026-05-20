@@ -38,7 +38,7 @@ O projeto consiste em um sistema de **Controle Financeiro Pessoal**. A escolha p
 
 ### Pré-requisitos
 * **Python 3.12.3** (ou superior).
-* O projeto foi construído utilizando apenas módulos nativos padrão do Python (`json` e `os`), e não foi usado biblioteca.
+* O projeto foi construído utilizando apenas módulos nativos padrão do Python (`json` e `os`), e não foi usado biblioteca externa.
 
 ### Inicialização via Terminal
 python main.py
