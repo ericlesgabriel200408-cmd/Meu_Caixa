@@ -45,9 +45,10 @@ python main.py
 
 ---
 
-## 4. Funcionalides implementadas 
+## 4. Funcionalidades implementadas 
  Foram implementadas os requisitos do Tema "Controle Financeiro Pessoal":
    - Cadastrar transação (descrição, valor, tipo: receita/despesa, categoria) ficou no adicionar transação
+   - Dicionários foi utilizado no adicionar trasação: tipo,categoria,data .
    - Listar todas as transações com status: apenas as despesas.
    - Fila de despesas pendentes — FIFO: mais antiga paga primeiro ficou no Despesas a pagar e Pagar despesas.
    - Pilha de pagamentos realizados — LIFO: ficou no Despegas Pagas - Pilha_pagamento.
