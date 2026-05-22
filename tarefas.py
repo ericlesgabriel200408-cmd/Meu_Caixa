@@ -43,8 +43,9 @@ def carregar_dados():
         }
         
 #A partir daqui fui fazendo e testanto funções, pesquisando erros e os concertando.
-#Aqui entra a primeira transação, onde fica opcional de escolha de colocar despesa/receita.
+
 def adicionar_transacao():
+    '''#Aqui entra a primeira transação, onde fica opcional de escolha de colocar despesa/receita'''   
     dados = carregar_dados()
     tipo = input("Tipo (receita/despesa): ")
     valor = float(input("Valor: "))
@@ -62,12 +63,10 @@ def adicionar_transacao():
     dados["transacoes"].append(transacao)
     salvar_dados(dados)
     print("Transação adicionada com sucesso!")
-    
+  
 #Caso adicione uma informação errada ele pode excluir e colocar novamente.
 def remover_transacao():
-    '''# Aqui é a base das obrigatóriedades que.txt
-    
-    '''
+    ''' #Caso adicione uma informação errada ele pode excluir e colocar novamente.'''
     dados = carregar_dados()
     listar_transacoes()
     escolha = int(input("Escolha o número da transação que deseja remover: "))
@@ -79,8 +78,8 @@ def remover_transacao():
         print("Opção inválida.")
         return
         
-#Aqui usei return para garantir caso não tenha adicionado nada, estava com tendo problema pra ele listar sem adicionar nada.
 def listar_transacoes():
+    '''#Aqui usei return para garantir caso não tenha adicionado nada, estava com tendo problema pra ele listar sem adicionar nada.'''
     dados = carregar_dados()
 
     if not dados["transacoes"]:
@@ -97,7 +96,8 @@ def listar_transacoes():
 #Tive um pouco de dificuldade para fazer funcionar, mas tentativas de erro conseguir arrumar.
 def saldo_atual():
     dados = carregar_dados()
-    #Aqui só tinha faltado colocar o valor para saldo uma coisa simples de resolver , tava tão afoito que não prestei atenção.
+    '''#Aqui só tinha faltado colocar o valor para saldo uma coisa simples de resolver
+    tava tão afoito que não prestei atenção.'''
     saldo = 0
     
     for transacao in dados["transacoes"]:
@@ -147,7 +147,8 @@ def pagar_despesas():
     
     for transacao in dados["transacoes"]:
         if transacao["tipo"] == "despesa":
-            fila_pagamentos.append(transacao)      #buscar apenas as despesas.
+            fila_pagamentos.append(transacao)
+            '''#buscar apenas as despesas.'''
 
     # Aqui  é pra olhar se existe despesas adicionadas.
     if len(fila_pagamentos) == 0:
