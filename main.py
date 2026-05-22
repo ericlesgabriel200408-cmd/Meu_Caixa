@@ -1,5 +1,5 @@
 # main.py do projeto financeiro
-#coloquei todos os imports que traz os dados salvos.
+#coloquei todos os imports que trazem os dados salvos.
 from dados import *
 from utils import *
 from tarefas import *
